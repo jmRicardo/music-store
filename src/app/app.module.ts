@@ -18,12 +18,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    BrandComponent
+    BrandComponent,
+    AboutUsComponent
   ],
   imports: [
     MatSlideToggleModule,
