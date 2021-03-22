@@ -53,12 +53,14 @@ export class BrandComponent{
       })
     }else{
       this.newCards.forEach( card => {
-        card.col = Math.floor(Math.random() * 1) + 1;
-        card.row = Math.floor(Math.random() * 1) + 1;
+        card.col = 1;
+        card.row = Math.floor(Math.random() * 2) + 1;
       })
     }
 
     this.cards = this.newCards
+
+    this.cards.sort(() => Math.random() - 0.5);
 
     console.log(this.cards);
 
@@ -66,7 +68,7 @@ export class BrandComponent{
   }
 
   getImage(imageName: string): string{
-    return 'url( ' + 'http://localhost:6006/' + imageName + '.png' + ')';
+    return 'url( ' + 'http://localhost:6006/' + imageName + ')';
   }
   
 }
