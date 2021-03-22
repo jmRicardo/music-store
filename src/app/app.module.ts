@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { GoogleMapsModule} from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    FormsModule
+    FormsModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

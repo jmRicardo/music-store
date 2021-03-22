@@ -1,1 +1,10 @@
-<p>about-us works!</p>
+<div class="about-elements">
+    <h1 class="find">Find our store HERE!</h1>
+    <google-map controlSize="100px"  [center]="position">
+        <map-marker
+            [position]="position"
+            [label]="label"
+            [title]="title"
+        ></map-marker>
+    </google-map>
+</div>

@@ -12,4 +12,15 @@ export class AboutUsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  title = 'Our Store';
+
+  position = {
+    lat: -38.01658516047239, 
+    lng: -57.5926095600191
+  };
+
+  label = {
+    color: 'black',
+    text: 'AQUI'
+  };
 }
