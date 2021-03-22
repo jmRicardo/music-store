@@ -54,7 +54,7 @@ export class BrandComponent{
     }else{
       this.newCards.forEach( card => {
         card.col = 1;
-        card.row = Math.floor(Math.random() * 2) + 1;
+        card.row = 2;
       })
     }
 

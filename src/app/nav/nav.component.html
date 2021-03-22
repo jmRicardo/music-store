@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container" [ngClass]="{'dark-theme':isDarkTheme}">
+<mat-sidenav-container class="sidenav-container mat-app-background" [ngClass]="{'dark-theme':isDarkTheme}">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -22,8 +22,8 @@
       </button>
       <span>Music Store</span>
       <span style="flex:auto"></span>
-      <mat-slide-toggle>
-        Dark Theme
+      <mat-slide-toggle [(ngModel)] = "isDarkTheme" labelPosition="before" (change)="storeThemeSelection()">
+        <mat-icon>bedtime</mat-icon>
       </mat-slide-toggle>
     </mat-toolbar>  
 

@@ -10,7 +10,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class NavComponent {
 
-  isDarkTheme:boolean = true;
+  isDarkTheme:boolean = true  ;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -19,5 +19,13 @@ export class NavComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  ngOnInit(){
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark";
+  }
+
+  storeThemeSelection(){
+    localStorage.setItem('theme',this.isDarkTheme ? "Dark" : "Light");
+  }
 
 }
