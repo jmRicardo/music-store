@@ -10,6 +10,8 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class NavComponent {
 
+  title:string = 'M U S I C  S T O R E';
+
   isDarkTheme:boolean = true  ;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

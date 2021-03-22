@@ -1,5 +1,6 @@
 .grid-container {
   margin: 20px;
+  padding: 35px;
 }
 
 .dashboard-card {
@@ -30,3 +31,4 @@
   padding-top: 10px;
   border-radius: 6px;
 }
+
