@@ -64,6 +64,10 @@ export class BrandComponent{
 
     //this.cards = this.isHandSet ? this.cardsForHandset : this.cardsForWeb;
   }
+
+  getImage(imageName: string): string{
+    return 'url( ' + 'http://localhost:6006/' + imageName + '.png' + ')';
+  }
   
 }
 
