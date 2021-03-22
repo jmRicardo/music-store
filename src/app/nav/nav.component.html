@@ -20,7 +20,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Music Store</span>
+      
+      <mat-icon style="padding-right: 10px;">play_circle_outlined</mat-icon>
+      <span style="font-family: 'Fjalla One', sans-serif;">Music Store</span>
+      
       <span style="flex:auto"></span>
       <mat-slide-toggle [(ngModel)] = "isDarkTheme" labelPosition="before" (change)="storeThemeSelection()">
         <mat-icon>bedtime</mat-icon>
