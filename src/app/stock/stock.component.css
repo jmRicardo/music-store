@@ -1,0 +1,18 @@
+.full-width-table {
+  width: 100%;
+}
+
+.table
+{
+  padding: 40px;
+}
+
+.filter-button
+{
+  display:flex;  
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 20px;
+
+}

@@ -21,6 +21,12 @@ import { FormsModule } from '@angular/forms';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { GoogleMapsModule} from '@angular/google-maps';
 import { FooterComponent } from './footer/footer.component';
+import { StockComponent } from './stock/stock.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,8 @@ import { FooterComponent } from './footer/footer.component';
     NavComponent,
     BrandComponent,
     AboutUsComponent,
-    FooterComponent
+    FooterComponent,
+    StockComponent
   ],
   imports: [
     MatSlideToggleModule,
@@ -46,7 +53,12 @@ import { FooterComponent } from './footer/footer.component';
     MatCardModule,
     MatMenuModule,
     FormsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
