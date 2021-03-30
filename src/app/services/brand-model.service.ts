@@ -2,20 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Brand } from '../models/brand';
+import { BrandModel } from '../models/brand-model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BrandService {
-  
+export class BrandModelService {
+
   baseUrl: string = environment.url.protocol + environment.url.url;
 
-  getAll:string = this.baseUrl + environment.services.brand.getAll;
+  getAll:string = this.baseUrl + environment.services.brandModel.getAll;
 
   constructor(private httpClient:HttpClient) { }
 
-  getDeals():Observable<Brand[]>{
-    return this.httpClient.get<Brand[]>(this.getAll);
-  }
+   getDeals():Observable<BrandModel[]>{
+     return this.httpClient.get<BrandModel[]>(this.getAll);
+   }
 }

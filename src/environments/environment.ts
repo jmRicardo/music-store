@@ -7,6 +7,9 @@ export const environment = {
   services: {
     brand: {
       getAll: '/brand/all'
+    },
+    brandModel: {
+      getAll: '/bmodel/all'
     }
   }
 }

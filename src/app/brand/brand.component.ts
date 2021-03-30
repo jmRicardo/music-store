@@ -3,7 +3,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { BrandService } from '../services/brand.service';
-import { Card } from '../models/card';
+import { Brand } from '../models/brand';
 
 @Component({
   selector: 'app-brand',
@@ -13,8 +13,8 @@ import { Card } from '../models/card';
 export class BrandComponent{
   /** Based on the screen size, switch from standard to one column per row */
 
-  cards: Card[] = [];
-  newCards: Card[] = [];
+  cards: Brand[] = [];
+  newCards: Brand[] = [];
 
   isHandSet:boolean = false;
 
