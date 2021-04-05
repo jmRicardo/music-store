@@ -27,6 +27,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input';
+import {NgxsModule} from '@ngxs/store';
+import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
+import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
+import {BrandState} from './states/brand.state';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,10 @@ import { MatInputModule} from '@angular/material/input';
   imports: [
     MatSlideToggleModule,
     BrowserModule,
+    NgxsModule.forRoot([BrandState], { developmentMode: !environment.production }
+    ),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

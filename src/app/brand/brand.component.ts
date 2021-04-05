@@ -1,22 +1,26 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { BrandService } from '../services/brand.service';
 import { Brand } from '../models/brand';
+import {Select, Store} from '@ngxs/store';
+import {BrandState} from '../states/brand.state';
+import {IBrand} from '../models/IBrand';
+import {GetBrands, UpdatePositions} from '../actions/brand.action';
 
 @Component({
   selector: 'app-brand',
   templateUrl: './brand.component.html',
   styleUrls: ['./brand.component.css']
 })
-export class BrandComponent{
-  /** Based on the screen size, switch from standard to one column per row */
+export class BrandComponent implements OnInit, AfterViewInit{
+  // @ts-ignore
+  @Select(BrandState.getBrands) brands: Observable<IBrand[]>;
+  cards: IBrand[] = [];
+  newCards: IBrand[] = [];
 
-  cards: Brand[] = [];
-  newCards: Brand[] = [];
-
-  isHandSet:boolean = false;
+  isHandSet: boolean = false;
 
   isHandsetObs$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -24,45 +28,33 @@ export class BrandComponent{
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private brandservice:BrandService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private store: Store) {
+  }
 
-  ngOnInit(){
+  ngOnInit(): void {
+    this.store.dispatch(new GetBrands());
+
+    this.loadCards();
+
     this.isHandsetObs$.subscribe(value => {
       this.isHandSet = value;
       this.loadCards();
     });
-
-    this.brandservice.getDeals().subscribe(
-      response => {
-        this.newCards = response;
-        this.loadCards();
-      },
-      error => {
-        alert('error al traer los datos de la API');
-      }
-    )
   }
-  
-  loadCards(){
 
-    if (this.isHandSet)
-    {
-      this.newCards.forEach( card => {
-        card.col = 2;
-        card.row = 1;
-      })
-    }else{
-      this.newCards.forEach( card => {
-        card.col = 1;
-        card.row = 2;
-      })
-    }
 
-    this.cards = this.newCards
 
-    this.cards.sort(() => Math.random() - 0.5);
+  loadCards(): void {
+    let row: number;
+    let col: number;
+    col = this.isHandSet ? 2 : 1;
+    row = this.isHandSet ? 1 : 2;
 
-    console.log(this.cards);
+    this.store.dispatch(new UpdatePositions(row, col));
+
+    //this.cards = this.newCards;
+
+    //this.cards.sort(() => Math.random() - 0.5);
 
     //this.cards = this.isHandSet ? this.cardsForHandset : this.cardsForWeb;
   }
@@ -70,7 +62,13 @@ export class BrandComponent{
   getImage(imageName: string): string{
     return 'url( ' + 'http://localhost:6006/' + imageName + ')';
   }
-  
+
+  ngAfterViewInit(): void {
+
+  }
+
+
+
 }
 
 

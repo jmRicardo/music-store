@@ -1,15 +1,15 @@
 <div class="body-brand">
   <div class="grid-container">
     <mat-grid-list cols="2" rowHeight="350px">
-      <mat-grid-tile *ngFor="let card of cards" [colspan]="card.col" [rowspan]="card.row">
-        <mat-card class="dashboard-card card-image mat-card" [style.background-image]="getImage(card.image)">
+      <mat-grid-tile *ngFor="let brand of brands | async" [colspan]="brand.col" [rowspan]="brand.row">
+        <mat-card class="dashboard-card card-image mat-card" [style.background-image]="getImage(brand.image)">
           <mat-card-header class="mat-app-background card-title mat-card-header">
             <mat-card-title>
-              {{card.name}}
+              {{brand.name}}
             </mat-card-title>
-            <mat-card-subtitle>{{card.country}}</mat-card-subtitle>
+            <mat-card-subtitle>{{brand.country}}</mat-card-subtitle>
           </mat-card-header>
-        </mat-card>        
+        </mat-card>
       </mat-grid-tile>
     </mat-grid-list>
   </div>
